@@ -1,4 +1,4 @@
-import { db } from "$lib/server/db";
+import { db } from "$lib/db/db.js";
 
 export async function load() {
 	const [products] = await db.query(

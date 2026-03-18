@@ -18,7 +18,16 @@
 <main class="min-h-[300px] p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
  
 {#each data.products as product}
-    <a href={`/products/${product.slug}`} class="border p-5 rounded-lg shadow bg-white hover:-translate-y-1 transition">
+    <a href={`/products/${product.slug}`} class="border p-5 rounded-lg shadow bg-white hover:-translate-y-1 transition overflow-hidden">
+        <div class="w-full h-48 mb-4 overflow-hidden rounded-lg bg-gray-100">
+            <img
+                src={product.image_url}
+                alt={product.name}
+                class="w-full h-full object-cover"
+                onerror={(event) => (event.target.src = '/fallback.png')}
+            />
+        </div>
+
         <h2 class="text-xl font-bold mb-2">{product.name}</h2>
         <p class="text-gray-600 mb-3 overflow-hidden" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;">
             {product.description}
